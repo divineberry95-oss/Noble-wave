@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NOBLE WAVE — Music Without Borders</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div id="authView" class="auth-shell">
+    <div class="brand-mark">NW</div>
+    <h1>NOBLE WAVE</h1>
+    <p>Music Without Borders.</p>
+    <div class="auth-card">
+      <div class="tabs">
+        <button class="tab active" data-auth="login">Log in</button>
+        <button class="tab" data-auth="signup">Create account</button>
+      </div>
+      <form id="authForm">
+        <label>Name <input id="authName" placeholder="Your name"></label>
+        <label>Email <input id="authEmail" type="email" required placeholder="you@example.com"></label>
+        <label>Password <input id="authPassword" type="password" required minlength="6" placeholder="At least 6 characters"></label>
+        <button class="gold-btn" type="submit" id="authSubmit">Log in</button>
+      </form>
+      <p class="muted small">Secure account authentication is connected to NOBLE WAVE Supabase.</p>
+    </div>
+  </div>
+
+  <div id="appView" class="app hidden">
+    <header class="topbar">
+      <div class="brand"><span>NW</span><strong>NOBLE WAVE</strong></div>
+      <div class="top-actions">
+        <button id="installBtn" class="ghost-btn hidden">Install</button>
+        <button id="logoutBtn" class="ghost-btn">Log out</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <button class="nav active" data-page="home">⌂ <span>Home</span></button>
+        <button class="nav" data-page="discover">◈ <span>Discover</span></button>
+        <button class="nav" data-page="search">⌕ <span>Search</span></button>
+        <button class="nav" data-page="library">♡ <span>Library</span></button>
+        <button class="nav" data-page="playlists">▤ <span>Playlists</span></button>
+        <button class="nav" data-page="artist">♬ <span>Artist Hub</span></button>
+        <button class="nav" data-page="royalties">₿ <span>Royalties</span></button>
+        <button class="nav" data-page="payouts">$ <span>Payouts</span></button>
+        <button class="nav" data-page="rights">© <span>Rights</span></button>
+        <button class="nav" data-page="upload">＋ <span>Upload Music</span></button>
+        <button class="nav hidden" id="adminNav" data-page="admin">▣ <span>Admin Console</span></button>
+        <button class="nav" data-page="settings">⚙ <span>Settings</span></button>
+      </aside>
+
+      <section class="content">
+        <div id="page"></div>
+      </section>
+    </main>
+
+    <div class="player">
+      <div class="now">
+        <div id="nowArt" class="cover tiny">♪</div>
+        <div><strong id="nowTitle">Nothing playing</strong><span id="nowArtist">Choose a song</span></div>
+      </div>
+      <div class="controls">
+        <button id="prevBtn">⏮</button><button id="playBtn" class="play">▶</button><button id="nextBtn">⏭</button>
+        <input id="seek" type="range" min="0" max="100" value="0">
+      </div>
+      <div class="volume"><span id="timeLabel">0:00 / 0:00</span><input id="volume" type="range" min="0" max="1" step=".01" value=".8"></div>
+    </div>
+  </div>
+  <audio id="audio"></audio>
+  <div id="globalMsg"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+  <script>if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "NOBLE WAVE — Music Without Borders",
+  "short_name": "NOBLE WAVE",
+  "description": "Free global music discovery with artist-first royalty tracking.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#090909",
+  "theme_color": "#c7a15a",
+  "icons": []
+}
